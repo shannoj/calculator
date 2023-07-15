@@ -1,0 +1,44 @@
+.calc-body{
+    background-color: gray;
+    height: 375px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.buttons{
+    background-color: lightgray;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.numbers{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.block-1, .block-2, .block-3, .block-4{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.display{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    color: white;
+    height: 50%;
+    font-size: xx-large;
+}
