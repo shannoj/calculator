@@ -1,17 +1,17 @@
 function add(x,y){
-    return parseInt(x) + parseInt(y);
+    return (parseInt(x) + parseInt(y));
 }
 
 function subtract(x,y){
-    return parseInt(x) - parseInt(y);
+    return (parseInt(x) - parseInt(y));
 }
 
 function multiply(x,y){
-    return parseInt(x) * parseInt(y);
+    return (parseInt(x) * parseInt(y));
 }
 
 function divide(x,y){
-    return parseInt(x) / parseInt(y); 
+    return (parseInt(x) / parseInt(y)); 
 }
 
 function operator(opp, num1, num2){
@@ -31,8 +31,8 @@ function operator(opp, num1, num2){
         if (opp == "/"){
             result = divide(num1,num2);
         }
-    
-        return result;
+
+        return result.toString();
     }
 
 const button = document.getElementsByTagName("button");
@@ -41,11 +41,9 @@ let num1 = "";
 
 let num2 = "";
 
-let equalPress = false;
+let num1Entered = false;
 
-let operatorPress = false;
-
-let operation = "";
+let num2Entered = false;
 
 const display = document.getElementById("display");
 
@@ -58,188 +56,229 @@ for (let i of button){
             num1 = "";
             num2 = "";
             operatorPress = false;
+            num1Entered = false;
+            num2Entered = false;
         }
 
         if (i.id == "0"){
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "0";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "0";
                 display.textContent = num2;
+                num2Entered = true;
             }
         }
 
         if (i.id == "1"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "1";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "1";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "2"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "2";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "2";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "3"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "3";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "3";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "4"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "4";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "4";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "5"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "5";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "5";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "6"){
             
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "6";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "6";
                 display.textContent = num2;
+                num2Entered = true;
             }
 
         }
 
         if (i.id == "7"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "7";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "7";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "8"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "8";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "8";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "9"){
 
-            if (!operatorPress){
+            if (!num1Entered){
                 num1 = num1 + "9";
                 display.textContent = num1;
             }
 
-            if (operatorPress){
+            if (num1Entered){
                 num2 = num2 + "9";
                 display.textContent = num2;
+                num2Entered = true;
             }
             
         }
 
         if (i.id == "+"){
             operation = "+";
-            operatorPress = !operatorPress;
+            num1Entered = true;
+            if (num2Entered){
+                display.textContent = operator(operation, num1, num2);
+                num1 = operator(operation, num1, num2);
+                num1Entered = true;
+                num2Entered = false;
+                num2 = "";
+            };
             
         }
 
         if (i.id == "-"){
             operation = "-";
-            operatorPress = !operatorPress;
-            
+            num1Entered = true;
+            if (num2Entered){
+                display.textContent = operator(operation, num1, num2);
+                num1 = operator(operation, num1, num2);
+                num1Entered = true;
+                num2Entered = false;
+                num2 = "";
+            }; 
         }
 
         if (i.id == "x"){
             operation = "*";
-            operatorPress = !operatorPress;
+            num1Entered = true;
+            if (num2Entered){
+                display.textContent = operator(operation, num1, num2);
+                num1 = operator(operation, num1, num2);
+                num1Entered = true;
+                num2Entered = false;
+                num2 = "";
+            };
             
         }
 
         if (i.id == "/"){
             operation = "/";
-            operatorPress = !operatorPress;
+            num1Entered = true;
+            if (num2Entered){
+                display.textContent = operator(operation, num1, num2);
+                num1 = operator(operation, num1, num2);
+                num1Entered = true;
+                num2Entered = false;
+                num2 = "";
+            };
             
+      
         }
 
         if (i.id == "."){
 
-            if (!operatorPress){
-                num1 = num1 + ".";
-                display.textContent = num1;
-            }
+                if (!operatorPress){
+                    num1 = num1 + ".";
+                    display.textContent = num1;
+                }
 
-            if (operatorPress){
-                num2 = num2 + ".";
-                display.textContent = num2;
-            }
+                if (operatorPress){
+                    num2 = num2 + ".";
+                    display.textContent = num2;
+                }
             
         }
 
         if (i.id == "="){
-           operatorPress = !operatorPress;
            display.textContent = operator(operation, num1, num2);
            num1 = operator(operation, num1, num2);
+           num1Entered = true;
+           num2Entered = false;
            num2 = "";
         }
 
