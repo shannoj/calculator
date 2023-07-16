@@ -27,7 +27,7 @@
     margin: 5px;
 }
 
-.block-1, .block-2, .block-3, .block-4{
+.block-0, .block-1, .block-2, .block-3, .block-4{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
