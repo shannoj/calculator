@@ -37,6 +37,8 @@ function operator(opp, num1, num2){
 
 const button = document.getElementsByTagName("button");
 
+let value = "";
+
 let num1 = "";
 
 let num2 = "";
@@ -44,6 +46,8 @@ let num2 = "";
 let num1Entered = false;
 
 let num2Entered = false;
+
+var operations = [];
 
 const display = document.getElementById("display");
 
@@ -58,6 +62,7 @@ for (let i of button){
             operatorPress = false;
             num1Entered = false;
             num2Entered = false;
+            operations = [];
         }
 
         if (i.id == "0"){
@@ -211,9 +216,11 @@ for (let i of button){
         if (i.id == "+"){
             operation = "+";
             num1Entered = true;
+            operations.unshift("+");
             if (num2Entered){
-                display.textContent = operator(operation, num1, num2);
-                num1 = operator(operation, num1, num2);
+                value = operator(operations.pop(), num1, num2);
+                display.textContent = value;
+                num1 = value;
                 num1Entered = true;
                 num2Entered = false;
                 num2 = "";
@@ -224,9 +231,11 @@ for (let i of button){
         if (i.id == "-"){
             operation = "-";
             num1Entered = true;
+            operations.unshift("-");
             if (num2Entered){
-                display.textContent = operator(operation, num1, num2);
-                num1 = operator(operation, num1, num2);
+                value = operator(operations.pop(), num1, num2);
+                display.textContent = value;
+                num1 = value;
                 num1Entered = true;
                 num2Entered = false;
                 num2 = "";
@@ -236,9 +245,11 @@ for (let i of button){
         if (i.id == "x"){
             operation = "*";
             num1Entered = true;
+            operations.unshift("*")
             if (num2Entered){
-                display.textContent = operator(operation, num1, num2);
-                num1 = operator(operation, num1, num2);
+                value = operator(operations.pop(), num1, num2);
+                display.textContent = value;
+                num1 = value;
                 num1Entered = true;
                 num2Entered = false;
                 num2 = "";
@@ -249,9 +260,11 @@ for (let i of button){
         if (i.id == "/"){
             operation = "/";
             num1Entered = true;
+            operations.unshift("/");
             if (num2Entered){
-                display.textContent = operator(operation, num1, num2);
-                num1 = operator(operation, num1, num2);
+                value = operator(operations.pop(), num1, num2);
+                display.textContent = value;
+                num1 = value;
                 num1Entered = true;
                 num2Entered = false;
                 num2 = "";
@@ -275,11 +288,13 @@ for (let i of button){
         }
 
         if (i.id == "="){
-           display.textContent = operator(operation, num1, num2);
-           num1 = operator(operation, num1, num2);
+           value = operator(operation, num1, num2);
+           display.textContent = value;
+           num1 = value;
+           num2 = "";
+           operations = [];
            num1Entered = true;
            num2Entered = false;
-           num2 = "";
         }
 
     });
